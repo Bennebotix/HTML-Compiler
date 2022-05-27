@@ -1,3 +1,72 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html style="background-color: #11191E;">
+  <head style="background-color: #11191E;">
+    <meta charset="utf-8">
+    <meta name="Open Source - HTML Compiler">
+    <meta description="">
+    <title>Open Source - HTML Compiler</title>
+    <style>
+      .title {
+        grid-area: title;
+        justify-self: center;
+        color: lime;
+      }
+      .url-loader {
+        grid-area: urlthing;
+        justify-self: center;
+      }
+      .code {
+        grid-area: code;
+        justify-self: center;
+      }
+      .result {
+        grid-area: result;
+        justify-self: center;
+      }
+
+      .body {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: auto;
+        grid-template-areas: 
+          "title title"
+          "urlthing urlthing"
+          "code result"
+          "info info"
+          "source source";
+      }
+      body {
+        font-family: Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body style="background-color: #11191E;">
+  	<script type="text/javascript">
+    	function launchURL() {
+        	window.open("data:text/html,<h1>HI!</h1>");
+        };
+    </script>
+  	<div class="body">
+    	<div class="title"><h1>Open Source - HTML Compiler</h1></div>
+    	<div class="url-loader">
+        	<form action="launchURL();">
+            	<h4 style="color: white;">Launch in URL form:</h4>
+            	<label style="color: white;" for="base"><h4>Base64</label>
+                <input type="radio" name="base"/>
+            	<label style="color: white;" for="norm"><h4>Normal</label>
+                <input type="radio" name="norm"/><br><br>
+                <input type="submit" value="Launch!" style="border: none; background-color: lime; color: black;"/>
+            </form>
+        </div>
+    	<div class="code"><textarea rows="15" columns="50" style="border-color: lime; border-width: 5px; background-color: #102635; padding: 10px; color: white; font-size: 18px; margin: 7px;" id="codeinput"></textarea></div>
+    	<div id="result" class="result" style="border-color: black; border-width: 2px; background-color: white;"></div>
+        <script  type="text/javascript">
+          var codeinput = document.getElementById("codeinput");
+          var codeuotput = document.getElementById("result");
+          setInterval(function(){
+          	codeuotput.innerHTML = codeinput.innerText;
+          }, 10);
+        </script>
+    </div>
+  </body>
+</html>
